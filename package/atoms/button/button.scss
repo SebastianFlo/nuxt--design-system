@@ -1,0 +1,103 @@
+@import '@storefront-ui/shared/styles/helpers.scss';
+
+.sf-button {
+  --button-padding: 0.7rem 1.6rem;
+  --button-box-shadow: none;
+  --button-text-transform: uppercase;
+  --button-text-decoration: none;
+  --button-border-radius: 2rem;
+  --button-border-width: 1px;
+
+  --button-font-weight: var(--font-weight--bold);
+  --button-font-line-height: var(--lh--base);
+  --button-font-family: var(--font-family--primary);
+  --button-font-size: var(--font-size--body-base);
+  --button-transition: background .4s, border-color .4s;
+
+  // theme
+  --button-background: var(--theme-color, var(--c-neon));
+  --button-color: var(--theme-background, var(--c-dark-green));
+  --button-border-color: var(--theme-color, var(--c-neon));
+
+  --button-hover-background: transparent;
+  --button-hover-color: var(--theme-color, var(--c-dark));
+  --button-hover-border-color: var(--theme-color, var(--c-dark));
+
+  min-width: 10rem;
+  letter-spacing: var(--letter-spacing--lg);
+  font-style: italic;
+
+  // disable the default box shadow/ripple
+  &::before {
+    display: none;
+  }
+
+  @include for-desktop {
+    --button-padding: 0.625rem 1.863rem;
+  }
+
+  // Only show hover when device actually has an input device that can hover (ex. a mouse)
+  // This fixes an issue on iOS, where buttons would stay in "hover" state after being clicked.
+  @media (hover: hover) {
+    &:hover {
+      --button-background: var(--button-hover-background);
+      --button-color: var(--button-hover-color);
+      --button-border-color: var(--button-hover-border-color);
+    }
+  }
+
+  &:active {
+    --button-background: var(--button-hover-background);
+    --button-color: var(--button-hover-color);
+    --button-border-color: var(--button-hover-border-color);
+  }
+
+  &.is-disabled--button {
+    --button-background: var(--c-dark-opacity-10);
+    --button-color: var(--c-dark-opacity-20);
+    --button-border-color: var(--c-dark-opacity-10);
+    --button-hover-background: var(--c-dark-opacity-10);
+    --button-hover-color: var(--c-dark-opacity-20);
+    --button-hover-border-color: var(--c-dark-opacity-10);
+  }
+
+  // Have to negate the "pure" styles again...
+  &--pure {
+    --button-padding: 0;
+    --button-background: transparent;
+    --button-color: var(--c-text);
+    --button-hover-color: var(--c-text);
+    --button-hover-border-color: var(--c-text);
+    --button-hover-background: transparent;
+
+    --button-text-transform: none;
+    --button-wrap: normal;
+    --button-box-shadow: none;
+    --button-border-radius: 0;
+    --button-border-width: 0;
+    --button-font-weight: var(--font-weight--normal);
+    --button-transition: none;
+
+    min-width: inherit;
+    font-style: initial;
+  }
+}
+
+.sf-button.sf-link {
+  --button-width: auto;
+  text-decoration: none;
+}
+
+.sf-button--outline {
+  --button-background: transparent;
+  --button-color: var(--theme-color, var(--c-neon));
+  --button-border-color: var(--theme-color, var(--c-neon));
+
+  --button-hover-background: var(--theme-color);
+  --button-hover-color: var(--theme-background, var(--c-dark));
+  --button-hover-border-color: var(--theme-color, var(--c-neon));
+}
+
+&--full-width {
+  --button-width: 100%;
+}

@@ -1,0 +1,37 @@
+.sf-dropdown {
+  --dropdown-position: relative;
+  --dropdown-container-position: absolute;
+
+  // Right now, we don't have a good design for themes
+  --theme-background: unset;
+  --theme-color: unset;
+
+  // TODO: find a better way to sync this
+  --dropdown-container-top: 50px;
+
+  .sf-button {
+    --button-border-radius: none;
+    --button-border: none;
+  }
+
+  li .sf-button {
+    --button-background: transparent;
+    --button-color: var(--c-text);
+    --button-hover-color: var(--c-neon);
+  }
+
+  li .sf-button.is-active {
+    --button-background: var(--c-text-disabled);
+    --button-hover-background: var(--c-neon);
+  }
+
+  li + li .sf-button {
+    border-top: var(--border-base);
+  }
+
+  &__title {
+    color: var(--c-text);
+    font-family: var(--font-family--primary);
+    text-transform: uppercase;
+  }
+}

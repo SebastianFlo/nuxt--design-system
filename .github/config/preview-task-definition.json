@@ -1,0 +1,40 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "frontend-design-system",
+      "image": "",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/frontend-design-system",
+          "awslogs-region": "eu-west-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "secrets": []
+    }
+  ],
+  "family": "frontend-design-system",
+  "taskRoleArn": "arn:aws:iam::393088806704:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::393088806704:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024"
+}

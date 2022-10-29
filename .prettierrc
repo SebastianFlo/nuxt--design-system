@@ -1,0 +1,8 @@
+{
+  "singleQuote": true,
+  "maxLine": 100,
+  "semi": true,
+  "trailingComma": "all",
+  "parser": "typescript",
+  "typescript.preferences.quoteStyle": "single"
+}

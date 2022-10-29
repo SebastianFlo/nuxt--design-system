@@ -1,0 +1,10 @@
+$sif-font-path: '../../package/base/fonts';
+$sif-icon-path: '../../package/base/icons';
+
+@import '../../package/base/styles/reset';
+@import '../../package/base/styles/index';
+
+.sif-ds {
+  @import '../../package/atoms/index';
+  @import '../../package/molecules/index';
+}

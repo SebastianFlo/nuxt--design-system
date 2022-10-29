@@ -1,0 +1,8 @@
+.sf-image--wrapper {
+  img {
+    // Due to onLoad event being glitchy on mobile Safari,
+    // we cannot rely on SfImage to unhide the image:
+    opacity: 1;
+    position: relative;
+  }
+}

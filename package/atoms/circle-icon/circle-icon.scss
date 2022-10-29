@@ -1,0 +1,16 @@
+.sf-circle-icon {
+  --button-size: 2.5rem;
+  --icon-size: 1.25rem;
+  --button-padding: var(--spacer-xs);
+
+  --icon-color: var(--theme-color, var(--c-dark));
+  --button-border-color: var(--theme-color, var(--c-dark));
+  --button-background: transparent;
+
+  border-width: 1px;
+  min-width: initial;
+
+  svg {
+    color: var(--icon-color);
+  }
+}

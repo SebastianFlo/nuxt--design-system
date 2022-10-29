@@ -1,0 +1,194 @@
+{
+  "presets": [
+    {
+      "id": 1181174,
+      "name": "atom",
+      "preset": {
+        "_uid": "426d7fd6-1fe8-4820-a80f-01beab0d461b",
+        "content": [],
+        "headline": "Default",
+        "component": "example",
+        "description": "",
+        "toggleButtonText": ""
+      },
+      "component_id": 1785697,
+      "space_id": 126576,
+      "created_at": "2021-09-27T06:54:00.805Z",
+      "updated_at": "2021-09-27T06:54:00.805Z",
+      "image": "",
+      "color": null,
+      "icon": null,
+      "description": null
+    },
+    {
+      "id": 1181263,
+      "name": "Atom Page",
+      "preset": {
+        "_uid": "2c2d8d72-c98d-4d7d-85c9-9fa54f97ff82",
+        "body": [
+          {
+            "_uid": "fe671fca-66db-4552-9b98-671b0093f298",
+            "content": [],
+            "headline": "Default",
+            "component": "example",
+            "description": "",
+            "toggleButtonText": ""
+          }
+        ],
+        "intro": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Some short text about what this atom does, and what it should be used for.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "headline": "Atom Name",
+        "component": "example-page"
+      },
+      "component_id": 1782450,
+      "space_id": 126576,
+      "created_at": "2021-09-27T08:54:18.370Z",
+      "updated_at": "2021-09-27T08:54:32.998Z",
+      "image": "",
+      "color": null,
+      "icon": null,
+      "description": null
+    },
+    {
+      "id": 1367184,
+      "name": "Simple Article",
+      "preset": {
+        "_uid": "c04d93f1-650d-4d90-afe6-cebc81db11f5",
+        "body": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Article body",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "meta": {
+          "_uid": "67fae064-55f0-453a-9072-f2b722838684",
+          "title": "",
+          "plugin": "seo_metatags",
+          "og_image": "",
+          "og_title": "",
+          "description": "",
+          "twitter_image": "",
+          "twitter_title": "",
+          "og_description": "",
+          "twitter_description": ""
+        },
+        "tags": [
+          "climate",
+          "blog"
+        ],
+        "media": {
+          "id": null,
+          "alt": null,
+          "name": "",
+          "focus": null,
+          "title": null,
+          "filename": null,
+          "copyright": null,
+          "fieldtype": "asset"
+        },
+        "title": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "Article title",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "author": "",
+        "footer": [],
+        "global": [],
+        "header": [],
+        "content": [],
+        "noIndex": false,
+        "hideMeta": false,
+        "component": "article",
+        "mediaCaption": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph"
+            }
+          ]
+        },
+        "sharedFooter": [],
+        "sharedHeader": [],
+        "relatedArticles": []
+      },
+      "component_id": 2059030,
+      "space_id": 126576,
+      "created_at": "2022-01-28T08:35:59.340Z",
+      "updated_at": "2022-01-28T08:35:59.340Z",
+      "image": "",
+      "color": null,
+      "icon": null,
+      "description": null
+    },
+    {
+      "id": 1243961,
+      "name": "Variant 1",
+      "preset": {
+        "_uid": "2c2d8d72-c98d-4d7d-85c9-9fa54f97ff82",
+        "body": [
+          {
+            "_uid": "fe671fca-66db-4552-9b98-671b0093f298",
+            "content": [],
+            "headline": "Default",
+            "component": "example",
+            "description": "",
+            "toggleButtonText": ""
+          }
+        ],
+        "intro": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "A section displaying a few selected FAQ items and a link to the main FAQ page.",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "headline": "FAQ Section",
+        "component": "example-page"
+      },
+      "component_id": 1782450,
+      "space_id": 126576,
+      "created_at": "2021-11-04T12:14:14.818Z",
+      "updated_at": "2021-11-04T12:14:14.818Z",
+      "image": "",
+      "color": null,
+      "icon": null,
+      "description": null
+    }
+  ]
+}

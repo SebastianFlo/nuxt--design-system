@@ -1,0 +1,112 @@
+@import '@storefront-ui/shared/styles/_helpers';
+$sif-font-path: './fonts' !default;
+
+@font-face {
+  font-family: Mabry Pro;
+  src: url($sif-font-path+'/mabry-regular-pro.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Canela;
+  src: local('Canela-Regular'),
+    url($sif-font-path+'/Canela-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Canela;
+  src: local('Canela-Light'),
+    url($sif-font-path+'/Canela-Light.woff2') format('woff2'),
+    url($sif-font-path+'/Canela-Light.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  // Font-size needs to be defined on root in order to use rem's
+  // Unfortunately that means using important if we want to be certain to override
+  // Storefront UI typography defaults.
+  --font-size--body-base: max(
+    14px,
+    min(calc(16 / 1440) * 100vw, 16px)
+  ) !important;
+  font-size: var(--font-size--body-base) !important;
+}
+
+body {
+  --font-family--primary: Mabry Pro, sans-serif;
+  --font-family--secondary: Canela, sans-serif;
+
+  // MISC
+  -webkit-font-smoothing: antialiased;
+
+  // base font setup
+  font-family: var(--font-family--primary);
+  font-size: var(--font-size--body-base);
+  line-height: 1.5;
+  font-weight: var(--font-weight--light);
+  color: var(--c-text);
+
+  //// FONT SIZE
+  // Title
+  --font-size--title-lg: max(35px, min(calc(60 / 1440 * 100vw), 60px));
+  --font-size--title-base: max(26px, min(calc(40 / 1440 * 100vw), 40px));
+  --font-size--title-sm: max(16px, min(calc(22 / 1440 * 100vw), 22px));
+
+  // Body
+  --font-size--body-xl: max(16px, min(calc(20 / 1440 * 100vw), 20px));
+  --font-size--body-lg: max(14px, min(calc(18 / 1440 * 100vw), 18px));
+  --font-size--body-base: max(14px, min(calc(16 / 1440 * 100vw), 16px));
+  --font-size--body-sm: max(12px, min(calc(14 / 1440 * 100vw), 14px));
+  --font-size--body-xs: max(12px, min(calc(12 / 1440 * 100vw), 12px));
+  --font-size--body-2xs: max(10px, min(calc(10 / 1440 * 100vw), 10px));
+  --font-size--body-3xs: max(8px, min(calc(8 / 1440 * 100vw), 8px));
+
+  // Canela specific sizes
+  --font-secondary-size--title-lg: max(30px, min(calc(45 / 1440 * 100vw), 45px));
+  --font-secondary-size--title-base: max(24px, min(calc(30 / 1440 * 100vw), 30px));
+  --font-secondary-size--title-sm: max(20px, min(calc(25 / 1440 * 100vw), 25px));
+
+  // LINE HEIGHTS
+  --lh--flat: 1;
+  --lh--tighter: 1.25;
+  --lh--tight: 1.375;
+  --lh--base: 1.5;
+  --lh--loose: 1.8;
+
+  // LETTER SPACINGS
+  --letter-spacing--xs: -0.05em;
+  --letter-spacing--sm: -0.02em;
+  --letter-spacing--base: 0px;
+  --letter-spacing--lg: 0.02em;
+  --letter-spacing--xl: 0.05em;
+
+  // HEADING FONT-SIZE
+  --h1-font-size: var(--font-size--title-lg);
+  --h2-font-size: var(--font-size--title-base);
+  --h3-font-size: var(--font-size--title-sm);
+  --h4-font-size: var(
+    --font-size--body-base
+  ); // TODO: should a body font be used for a heading?
+  // h5-6 not used
+
+  // Canela
+  --h2-secondary-font-size: var(--font-secondary-size--title-base);
+  --h3-secondary-font-size: var(--font-secondary-size--title-sm);
+
+  @include for-desktop {
+    --h1-font-size: var(--font-size--title-lg);
+    --h2-font-size: var(--font-size--title-base);
+    --h3-font-size: var(--font-size--title-sm);
+    --h4-font-size: var(
+      --font-size--title-sm
+    ); // TODO: should a body font be used for a heading?
+    // h5-6 not used
+  }
+}

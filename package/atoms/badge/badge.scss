@@ -1,0 +1,40 @@
+// overrides go here
+.sf-badge {
+  --badge-background: var(--theme-background, var(--c-light));
+  --badge-padding: var(--spacer-3xs) var(--spacer-3xs) var(--spacer-3xs) var(--spacer-2xs);
+
+  height: auto;
+  width: fit-content;
+  color: var(--theme-color, var(--c-dark));
+  background-color: var(--theme-background, var(--c-light));
+
+  padding: var(--badge-padding);
+
+  font-family: var(--font-family-primary);
+  text-transform: uppercase;
+  font-style: italic;
+
+  transform: skewX(-10deg);
+
+  &.sf-badge--outline {
+    margin-left: 0.2rem;
+
+    background: none;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      height: 100%;
+      width: 100%;
+
+      background-color: inherit;
+      border: 1px solid var(--theme-color, var(--c-dark));
+
+      transform: skewX(-10deg);
+    }
+  }
+}

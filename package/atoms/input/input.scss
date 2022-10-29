@@ -1,0 +1,177 @@
+@import '@storefront-ui/shared/styles/_helpers';
+
+.sf-input {
+  --input-width: 100%;
+  --input-bar-display: none;
+  --input-border: none;
+  --input-font-family: var(--font-family--primary);
+  --input-font-size: var(--font-size--body-base);
+  --input-font-line-height: var(--lh--tight);
+  --input-height: 4.286rem;
+  --input-text-align: left;
+
+  --input-border-color: var(--theme-color, var(--c-dark-green));
+  --input-background: var(--c-light-lighten);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+  border: thin solid var(--input-border-color);
+
+  @include for-desktop {
+    --input-height: 4rem;
+  }
+
+  input:disabled {
+    opacity: 0.65;
+    --input-color: var(--c-text);
+    -webkit-text-fill-color: var(--c-text);
+  }
+
+  input:disabled ~ * {
+    opacity: 0.65;
+    --input-label-color: var(--c-text);
+  }
+
+  &:focus-within .sf-input__wrapper {
+    background: var(--c-creme);
+  }
+
+  input {
+    --input-padding: 1px var(--spacer-base) 0;
+  }
+
+  &__wrapper {
+    --input-margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  &__label {
+    --input-label-font-family: var(--font-family--primary);
+    --input-label-font-size: var(--font-size--body-base);
+    --input-label-color: var(--c-text);
+    margin-left: var(--spacer-base);
+  }
+
+
+
+  &__error-message {
+    --input-error-message-font-family: var(--font-family--primary);
+    --input-error-message-font-size: var(--font-size--body-2xs);
+    --input-error-message-font-line-height: var(--lh--tight);
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+
+    padding: 0 var(--spacer-base) 0.75em var(--spacer-base);
+
+    > div {
+      max-width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  // Negate default input focus styles
+  input:focus ~ *,
+  input:placeholder-shown ~ * {
+    --icon-color: var(--c-text);
+    --input-password-icon-background: var(--c-light);
+    --input-label-color: var(--c-text);
+    --input-error-message-color: var(--c-red);
+  }
+
+  &__password-button {
+    --button-background: transparent;
+    --button-border-color: transparent;
+
+    --button-hover-background: transparent;
+    --button-hover-color: var(--c-text);
+    --button-hover-border-color: transparent;
+
+    position: absolute;
+    right: 0;
+
+    min-width: initial;
+    border-radius: 0;
+    padding: var(--spacer-xs);
+    background: none;
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.sf-input.has-text .sf-input__label,
+.sf-input input[type="date"] ~ *,
+.sf-input input[type="time"] ~ *,
+.sf-input input[type="image"] ~ *,
+.sf-input input[type="file"] ~ *,
+.sf-input input:placeholder-shown ~ .sf-input__label,
+.sf-input input[required]:valid ~ .sf-input__label,
+.sf-input input:focus ~ * {
+  --input-label-font-size: var(--font-size--body-2xs);
+  --input-label-top: .6em;
+  margin-top: .33em;
+}
+
+// .sf-input.has-text .sf-input__label,
+// .sf-input input:focus ~ .sf-input__label,
+// .sf-input input:placeholder-shown ~ .sf-input__label {
+//   margin-top: .33em;
+// }
+
+.sf-input.invalid {
+  --input-border-color: var(--c-red);
+
+  input {
+    &:focus {
+      & ~ * {
+        --input-label-color: var(--c-text);
+      }
+    }
+  }
+}
+
+// Input button group combo
+.sif-input-button-group {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  .sf-input {
+    --input-height: 2.875rem;
+    flex-grow: 1;
+    outline: none;
+
+    &__error-message {
+      padding-bottom: .25em;
+    }
+  }
+
+  .sf-button {
+    flex-shrink: 0;
+    display: flex;
+    min-width: 7.43rem;
+    padding: 0.7rem 2rem;
+
+    border-left: none;
+
+    font-family: var(--font-family--primary);
+    font-size: var(--font-size--body-sm);
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 700;
+
+    // No rounded corners:
+    --button-border-radius: 0;
+  }
+}

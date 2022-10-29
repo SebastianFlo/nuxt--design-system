@@ -1,0 +1,79 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.expand-button-enter-active,
+.expand-button-leave-active {
+  transition: all 0.5s;
+  // This overrides the all
+  transition-property: min-width, max-height, font-size, padding, opacity;
+}
+
+.expand-button-enter,
+.expand-button-leave-to {
+  min-width: 1px !important;
+  max-height: 1px;
+  font-size: 0;
+  padding: 0;
+}
+
+.expand-button-leave-to {
+  opacity: 0;
+}
+
+.expand-button-enter-to {
+  min-width: 10rem;
+}
+
+.sticky-container {
+  // Using Vue transitions, with custom keyframe animations (below).
+  &--fade-enter-active {
+    animation: sticky-container-fade-slide-in 0.7s ease-out;
+  }
+
+  &--fade-leave-active {
+    animation: sticky-container-fade-slide-out 0.4s ease-out;
+  }
+
+  &--fade-enter,
+  &--fade-leave-to {
+    opacity: 0;
+    transform: translateY(200%);
+  }
+
+  @keyframes sticky-container-fade-slide-in {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 200%);
+    }
+
+    40% {
+      transform: translate(-50%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @keyframes sticky-container-fade-slide-out {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    30% {
+      transform: translate(-50%, 200%);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate(-50%, 200%);
+    }
+  }
+}

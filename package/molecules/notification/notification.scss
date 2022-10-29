@@ -1,0 +1,19 @@
+.sf-notification {
+  --notification-height: 2rem;
+  --notification-font-family: var(--font-family--primary);
+  --notification-font-size: var(--font-size--body-sm);
+  --notification-close-top: 50%;
+  --notification-color: var(--c-text);
+  --notification-border-radius: 0;
+  --notification-max-width: 100%;
+  flex-basis: 100%;
+
+  &__close {
+    transform: translateY(-50%);
+  }
+
+  .sf-icon {
+    --icon-size: 1.5rem;
+    --icon-color: var(--c-text);
+  }
+}

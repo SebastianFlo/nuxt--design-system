@@ -1,0 +1,36 @@
+{
+  "name": "@seftek/design-system",
+  "version": "1.0.0",
+  "description": "Seftek Design System - Based on Vue Storefront UI, customized from Storyblok",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianFlo/nuxt--design-system.git"
+  },
+  "keywords": [
+    "design",
+    "system",
+    "storyblok",
+    "vue"
+  ],
+  "author": "Sebastian Florian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebastianFlo/nuxt--design-system/issues"
+  },
+  "homepage": "https://github.com/SebastianFlo/nuxt--design-system#readme",
+  "peerDependencies": {
+    "@storefront-ui/nuxt": "^0.10.8",
+    "@storefront-ui/vue": "^0.11.0-rc.2",
+    "@nuxtjs/composition-api": "^0.29.2",
+    "@nuxtjs/svg": "^0.3.0",
+    "body-scroll-lock": "^3.0.1",
+    "nuxt-gsap-module": "^1.5.0",
+    "reading-time": "^1.5.0",
+    "storyblok-nuxt": "^2.0.1",
+    "throttle-debounce": "^3.0.1"
+  }
+}

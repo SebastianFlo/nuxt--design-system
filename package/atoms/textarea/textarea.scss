@@ -1,0 +1,58 @@
+.sf-textarea {
+  max-width: 100%;
+
+  textarea ~ * {
+    --textarea-label-transform: translate3d(-1px, calc(-2rem - 1px), 0);
+    --textarea-label-transition: none;
+  }
+  // Disable animation for active textarea
+  &--has-text,
+  textarea:focus ~ * {
+    --textarea-label-transition: none;
+    --textarea-label-transform: translate3d(-1rem, -3rem, 0);
+    --textarea-label-padding: inherit;
+    --textarea-label-color: inherit;
+    --textarea-label-font-size: inherit;
+  }
+
+  // Safari hack
+  @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      textarea ~ * {
+        --textarea-label-transform: translate3d(-1px, calc(-9rem - 1px), 0);
+        --textarea-label-transition: none;
+      }
+
+      &--has-text,
+      textarea:focus ~ * {
+        --textarea-label-transition: none;
+        --textarea-label-transform: translate3d(-1rem, -10rem, 0);
+        --textarea-label-padding: inherit;
+        --textarea-label-color: inherit;
+        --textarea-label-font-size: inherit;
+      }
+
+    }
+  }
+
+  &--has-text textarea ~ * {
+    --textarea-label-transition: none;
+    --textarea-label-transform: translate3d(-1rem, -3rem, 0);
+  }
+
+  textarea {
+    --textarea-font-family: var(--font-family--primary);
+    --textarea-padding: 1em var(--spacer-base);
+    --textarea-background: var(--c-light-lighten);
+    width: 100%;
+    background-color: var(--textarea-background);
+
+    &:focus {
+      background: var(--c-creme);
+    }
+  }
+
+  &__label {
+    --textarea-label-font-family: var(--font-family--primary);
+  }
+}

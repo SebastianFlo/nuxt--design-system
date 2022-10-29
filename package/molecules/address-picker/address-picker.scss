@@ -1,0 +1,6 @@
+.sf-address {
+  &__icon {
+    // Fix a storefront UI bug
+    display: flex !important
+  }
+}

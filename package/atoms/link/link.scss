@@ -1,0 +1,19 @@
+.sf-link {
+  --link-font-weight: var(--button-font-weight, inherit);
+  --link-font-size: var(--button-font-size, inherit);
+  --link-font-line-height: var(--button-font-line-height, inherit);
+  --link-font-family: var(--button-font-family, inherit);
+  --link-color: var(--button-color, inherit);
+
+  &:hover,
+  &:active {
+    --link-color: var(--button-hover-color, var(--c-blue-darken));
+  }
+}
+
+// What is this case?
+button:not(.sf-button).sf-link {
+  background: none;
+  outline: none;
+  border: none;
+}

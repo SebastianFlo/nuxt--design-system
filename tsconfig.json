@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "lib": [
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
+    ],
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "types": [
+      "./custom_typings/window",
+      "./custom_typings/storyblok-nuxt",
+      "./custom_typings/gsap",
+      "@types/node",
+      "@nuxt/types",
+      "@nuxt/http",
+      "gsap/types",
+    ],
+    "typeRoots": [
+      "./custom_typings",
+      "./node_modules/@types"
+    ],
+    "jsx": "preserve"
+  },
+  "exclude": [
+    "test",
+    "node_modules",
+    ".nuxt",
+    "dist"
+  ]
+}

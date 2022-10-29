@@ -1,0 +1,21 @@
+# Notifies colleagues that a PR was created, and where to find it
+name: "PR Created"
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+
+    - name: Send slack notification
+      uses: Ilshidur/action-slack@2.0.2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_FRONTEND_TOKEN }}
+        SLACK_CHANNEL: frontend-team
+      with:
+        args: |
+          A new Design System PR was just created by ${{ github.event.pull_request.user.login }} :rocket:
+          > <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }}> ${{ github.event.pull_request.title }}

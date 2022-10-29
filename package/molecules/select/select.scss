@@ -1,0 +1,65 @@
+.sf-select {
+  --select-height: auto;
+  --select-padding: 0;
+
+  // custom
+  --select-border-color: var(--c-text);
+  --select-line-right: 3.75em;
+  --select-arrow-right: calc(0.38 * var(--select-line-right));
+
+  &.is-disabled {
+    --select-border-color: var(--c-text-disabled);
+  }
+
+  width: 100%;
+  max-width: 30rem;
+
+  &__label {
+    --select-label-font-size: var(--font-size--body-base);
+    --select-label-font-family: var(--font-family--primary);
+    --select-label-font-line-height: var(--lh--base);
+
+    // revert defauls
+    display: block;
+    position: static;
+    height: auto;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    pointer-events: auto;
+    padding-left: 0;
+
+    margin-bottom: calc(var(--lh--tight) * 1em);
+  }
+
+  &__dropdown {
+    appearance: none;
+    -webkit-appearance: none;
+
+    padding: .5em calc(var(--select-line-right) + 1em) .5em 1em;
+    height: auto;
+    border: 1px solid var(--select-border-color);
+    text-transform: uppercase;
+
+    background:
+      no-repeat center right var(--select-arrow-right) / 14px 8px url($sif-icon-path + '/arrow-down.svg'),
+      linear-gradient(
+        to left,
+        var(--c-light-lighten) var(--select-line-right),
+        var(--select-border-color) var(--select-line-right) calc(var(--select-line-right) + 1px),
+        var(--c-light-lighten) calc(var(--select-line-right) + 1px)
+      );
+
+    background-position-x: calc(100% - 1rem);
+    background-position-y: 1.1rem;
+
+    &:focus {
+      background-color: var(--c-creme);
+    }
+
+    &:disabled {
+      background: none;
+    }
+  }
+}

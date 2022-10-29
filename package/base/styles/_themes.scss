@@ -1,0 +1,55 @@
+:root {
+  --c-transparent: transparent;
+}
+
+$combos:
+// Primary (for main elements)
+('light-lighten', 'dark'),
+('dark', 'light-lighten'),
+
+('neon', 'dark-green'),
+('dark-green', 'neon'),
+
+('blue', 'creme'),
+('creme', 'blue'),
+
+('lavender', 'blue'),
+('blue', 'lavender'),
+
+// Secondary (for other elements)
+('light-green', 'dark-green'),
+('dark-green', 'light-green'),
+
+('peach', 'dark-red'),
+('dark-red', 'peach'),
+
+('creme', 'red'),
+('red', 'creme'),
+
+// Backgrounds
+// TODO:
+
+// Campaign Colors
+('pink', 'creme'),
+('creme', 'pink'),
+
+('patina', 'dark-green'),
+('dark-green', 'patina'),
+
+('neon', 'clay'),
+('clay', 'neon'),
+
+// Transparent
+('transparent', 'blue');
+
+@each $bg, $color in $combos {
+  .theme--#{$bg}_#{$color} {
+    --theme-background: var(--c-#{$bg});
+    --theme-background-opacity-10: var(--c-#{$bg}-opacity-10);
+    --theme-background-opacity-20: var(--c-#{$bg}-opacity-20);
+
+    --theme-color: var(--c-#{$color});
+    --theme-color-opacity-10: var(--c-#{$color}-opacity-10);
+    --theme-color-opacity-20: var(--c-#{$color}-opacity-20);
+  }
+}

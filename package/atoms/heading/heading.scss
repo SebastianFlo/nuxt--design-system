@@ -1,0 +1,91 @@
+@import '@storefront-ui/shared/styles/_helpers';
+
+.sf-heading {
+  --heading-padding: 0;
+  --heading-text-align: start;
+  --heading-text-transform: uppercase;
+
+  @include for-desktop {
+    --heading-text-align: start;
+  }
+
+  &__title {
+    --heading-title-color: var(--theme-color, var(--c-text));
+    --heading-title-font-family: var(--font-family--primary);
+    --heading-title-font-weight: var(--font-weight--normal);
+    --heading-title-font-line-height: var(--lh--flat);
+
+    text-transform: var(--heading-text-transform);
+
+    // Aint noone using bold without italics in this house :)
+    i,
+    b {
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    &.is-secondary {
+      --heading-text-transform: none;
+      --heading-title-font-weight: var(--font-weight--light);
+      --heading-title-font-family: var(--font-family--secondary);
+    }
+
+    &.h1 {
+      // Custom
+      --heading-title-font-line-height: 0.94;
+
+      --heading-title-font-size: var(--h1-font-size);
+
+      letter-spacing: var(--letter-spacing--sm);
+
+      + .sf-heading__description {
+        --heading-description-margin: calc(var(--lh--tight) * 0.45em) 0 0 0;
+        --heading-description-font-size: var(--font-size--body-xl);
+      }
+    }
+
+    &.h2 {
+      letter-spacing: var(--letter-spacing--sm);
+      --heading-title-font-size: var(--h2-font-size);
+
+      + .sf-heading__description {
+        --heading-description-font-size: var(--font-size--body-lg);
+      }
+
+      &.is-secondary {
+        --heading-title-font-size: var(--h2-secondary-font-size);
+        letter-spacing: var(--letter-spacing--base);
+      }
+    }
+
+    &.h3 {
+      --heading-title-font-line-height: var(--lh--base);
+
+      --heading-title-font-size: var(--h3-font-size);
+
+      &.is-secondary {
+        --heading-title-font-size: var(--h3-secondary-font-size);
+        --heading-title-font-line-height: var(--lh--tight);
+        letter-spacing: var(--letter-spacing--base);
+      }
+    }
+
+    &.h4 {
+      --heading-title-font-line-height: var(--lh--base);
+    }
+  }
+
+  &__description {
+    --heading-description-color: var(--theme-color, var(--c-text));
+    // TODO: decide on global title/body max widths for readability?
+    max-width: var(--heading-description-max-width, 60ch);
+
+    --heading-description-font-weight: var(--font-weight--light);
+    --heading-description-font-size: var(--font-size--body-base);
+    --heading-description-font-line-height: var(--lh--tight);
+    --heading-description-font-family: var(--font-family--primary);
+
+    // half a line of spacing
+    --heading-description-margin: calc(var(--lh--tight) * 0.5em) 0 0 0;
+  }
+}

@@ -1,0 +1,48 @@
+.sf-bottom-modal {
+  // TODO: use spacer values
+  --bottom-modal-container-padding: 32px 46px 15px;
+  --bottom-modal-title-padding: 0;
+  text-align: center;
+
+  &__container {
+    > * + * {
+      // TODO: use spacer value
+      margin-top: 12px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > * + * {
+      // TODO: use spacer value
+      margin-top: 20px;
+    }
+  }
+
+  &__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacer-sm);
+  }
+
+  &__title {
+    line-height: var(--lh--tight);
+    font-size: var(--font-size--title-sm);
+    font-weight: 500;
+  }
+
+  &__overlay {
+    filter: blur(1px) brightness(60%);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__close {
+    position: absolute;
+  }
+}

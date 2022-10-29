@@ -1,0 +1,81 @@
+.sif-tooltip {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+
+  .sif-tooltip__text {
+    visibility: hidden;
+    width: fit-content;
+    white-space: nowrap;
+    background-color: var(--c-light-lighten);
+    color: var(--c-dark);
+    text-align: center;
+    padding: 1px var(--spacer-2xs);
+    border: thin solid var(--c-dark);
+
+    position: absolute;
+    z-index: var(--z-index-content-front);
+  }
+
+  /* Show the tooltip text when you mouse over the tooltip container */
+  &:hover .sif-tooltip__text {
+    visibility: visible;
+
+    &.sif-tooltip--direction-down {
+      width: fit-content;
+      top: 2.5rem;
+      left: 0;
+      margin-left: calc(-1 * 100% / 2);
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        bottom: 100%; /* At the top of the tooltip */
+        left: 24%;
+        margin-left: -5px;
+        border: 10px solid transparent;
+        border-bottom-color: var(--c-dark);
+      }
+
+      &::after {
+        content: ' ';
+        position: absolute;
+        bottom: calc(100% - 1px); /* At the top of the tooltip */
+        left: calc(24% - 1px);
+        margin-left: -3px;
+        border: 9px solid transparent;
+        border-bottom-color: var(--c-light-lighten);
+      }
+    }
+
+    &.sif-tooltip--direction-up {
+      width: fit-content;
+      top: -2.5rem;
+      // left: 1rem;
+      // margin-left: calc(-1 * 100% / 2);
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        top: 100%; /* At the top of the tooltip */
+        left: 3%;
+        border: 10px solid transparent;
+        border-bottom-color: var(--c-dark);
+        transform: rotate(180deg);
+      }
+
+      &::after {
+        content: ' ';
+        position: absolute;
+        top: calc(100% - 1px); /* At the top of the tooltip */
+        left: calc(3% - 1px);
+        margin-left: 2px;
+        border: 9px solid transparent;
+        border-bottom-color: var(--c-light-lighten);
+        transform: rotate(180deg);
+      }
+    }
+
+    // TODO: Other directions
+  }
+}

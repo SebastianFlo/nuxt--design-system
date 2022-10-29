@@ -1,0 +1,63 @@
+@import '@storefront-ui/shared/styles/helpers';
+
+.sf-radio {
+  // custom properties, not Storefront UI defined
+  --radio-bg: var(--c-text);
+  --radio-pad-side: 1em;
+  --radio-pad-vertical: 1em;
+
+  &.is-disabled {
+    --radio-bg: var(--c-text-disabled);
+  }
+
+  &.is-active:not(.use-active-bg) {
+    background: none;
+  }
+
+  &__container {
+    // important bc SfUI overrides in breakpoint...
+    padding: var(--radio-pad-vertical) var(--radio-pad-side) !important;
+  }
+
+  &__checkmark {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 28px;
+    height: 28px;
+
+    &::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      transform: scale(0);
+      transform-origin: center center;
+      background: var(--radio-bg);
+      border-radius: 100%;
+      transition: transform 0.25s ease-in;
+    }
+
+    &.is-active {
+      border-width: 1px;
+      border-color: var(--radio-bg);
+
+      &::after {
+        transform: scale(1);
+        transition-timing-function: ease-out;
+      }
+    }
+  }
+
+  &__content {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__label {
+    font-size: var(--font-size--body-base);
+  }
+}

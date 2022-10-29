@@ -1,0 +1,48 @@
+.sf-quantity-selector {
+  --quantity-selector-background: transparent;
+  --quantity-selector-border-width: 0px;
+  --quantity-selector-justify-content: center;
+  --quantity-selector-text-shadow: none;
+  --quantity-selector-height: auto;
+  --quantity-selector-width: auto;
+  font-size: var(--font-size--body-base);
+
+  &__button {
+    --button-background: var(--theme-background, transparent);
+    --button-border-radius: 100%;
+    --button-padding: 0;
+    --button-size: max(30px, 2rem);
+    --button-font-size: 1.7rem;
+    --button-font-family: var(--font-family--secondary);
+    outline: 1px solid var(--theme-color, var(--c-text));
+    flex: none;
+
+    &.is-disabled--button {
+      color: var(--theme-color-opacity-20, var(--c-dark-opacity-20));
+      outline: 1px solid var(--theme-color-opacity-20, var(--c-dark-opacity-20));
+    }
+  }
+
+  &__input {
+    --input-width: max(25px, 2rem);
+    --input-height: max(30px, 2rem);
+    --input-background: none;
+
+    border: none;
+
+    &:focus-within .sf-input__wrapper {
+      background: none;
+    }
+
+    .sf-input__label {
+      display: none;
+    }
+
+    .sf-input .input,
+    input {
+      --input-font-size: var(--font-size--body-sm);
+      --input-text-align: center;
+      --input-padding: 0;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '@storefront-ui/shared/styles/helpers';
+
+/**
+ * Spacers are global utility values to ensure consistency in horizontal
+ * and sometimes vertical spacing between blocks.
+ *
+ * A great fit for:
+ * - gap value in a grid of components
+ * - padding around a section (both horizontal and vertical)
+ * - horizontal distance between an image, and a section with text
+ *
+ * Not good for:
+ * - Distances between a heading and a description (use margin w. em's)
+ * - Huge spacings in a card around an image (use percentage-based padding instead)
+ */
+
+body {
+  --spacer-ratio: 1.4;
+
+  --spacer-3xs: calc(var(--spacer-2xs) / var(--spacer-ratio));
+  --spacer-2xs: calc(var(--spacer-xs) / var(--spacer-ratio));
+  --spacer-xs: calc(var(--spacer-sm) / var(--spacer-ratio));
+  --spacer-sm: calc(var(--spacer-base) / var(--spacer-ratio));
+  --spacer-base: calc((18 / 14) * 1rem);
+  --spacer-md: var(--spacer-base);
+  --spacer-lg: calc(var(--spacer-base) * var(--spacer-ratio));
+  --spacer-xl: calc(var(--spacer-lg) * var(--spacer-ratio));
+  --spacer-2xl: calc(var(--spacer-xl) * var(--spacer-ratio));
+  --spacer-3xl: calc(var(--spacer-2xl) * var(--spacer-ratio));
+
+  // Our default app side spacing.
+  --app-gutter: var(--spacer-base);
+
+  @include for-desktop {
+    --app-gutter: var(--spacer-lg);
+  }
+}

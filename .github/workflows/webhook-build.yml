@@ -1,0 +1,54 @@
+name: Deploy Preview server
+on:
+  repository_dispatch:
+    types:
+      - webhook
+jobs:
+  deploy-preview:
+    # Name the Job
+    name: Deploy Preview Server to AWS
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+    # Steps
+    steps:
+      # Checkout our code
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Set AWS Credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+      # Login to ECR
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      # Build and push docker image
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: frontend-design-system
+          IMAGE_TAG: preview-${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+      # Insert in our new image URL
+      - name: Fill in the new image ID in the Amazon ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ./.github/config/preview-task-definition.json
+          container-name: frontend-design-system
+          image: ${{ steps.build-image.outputs.image }}
+      # Deploy to ECS
+      - name: Deploy to Amazon ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: frontend-design-system
+          cluster: staging
+          wait-for-service-stability: false

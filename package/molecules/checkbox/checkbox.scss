@@ -1,0 +1,26 @@
+// overrides go here
+
+.sf-checkbox {
+  &__checkmark {
+    --checkbox-background: transparent;
+  }
+
+  .sf-icon {
+    --icon-size: 1.5rem;
+    --icon-color: var(--c-text);
+  }
+
+  &.is-active {
+    --checkbox-border-color: var(--c-text);
+  }
+
+  &__message {
+    --checkbox-message-font-family: var(--font-family--primary);
+    --checkbox-message-font-size: var(--font-size--xs);
+  }
+}
+
+.sf-checkbox.has-error .sf-checkbox__checkmark.is-active {
+  --checkbox-border-color: var(--c-text);
+  --checkbox-background: transparent;
+}

@@ -1,0 +1,6 @@
+// overrides go here
+.sf-divider {
+  --divider-width: 100%;
+  --divider-border-width: 1px;
+  --divider-border-color: var(--theme-color, var(--c-dark-green));
+}

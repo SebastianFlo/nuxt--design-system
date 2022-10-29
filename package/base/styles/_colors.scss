@@ -1,0 +1,68 @@
+/**
+ * Generate private and public variables for each color we can use.
+ * Based on
+ * https://github.com/vuestorefront/storefront-ui/blob/17c67b2e13f9abeb0a0b789db5670d1f23567b5a/packages/shared/styles/helpers/_colors.scss
+ * (develop branch, 2021/11/3)
+ */
+
+// Mix private color variables
+@mixin generate-color-variants($variable, $value) {
+  #{$variable}: #{$value};
+  #{$variable}-base: rgbColor($value);
+  #{$variable}-lighten: lighten($value, 5);
+  #{$variable}-darken: darken($value, 5);
+  #{$variable}-opacity-10: fade-out($value, 0.9);
+  #{$variable}-opacity-20: fade-out($value, 0.8);
+}
+
+// Assign private color variables to public css properties
+@mixin assign-color-variants($variable, $value) {
+  #{$variable}: var(#{$value});
+  #{$variable}-base: var(#{$value}-base);
+  #{$variable}-lighten: var(#{$value}-lighten);
+  #{$variable}-darken: var(#{$value}-darken);
+  #{$variable}-opacity-10: var(#{$value}-opacity-10);
+  #{$variable}-opacity-20: var(#{$value}-opacity-20);
+};
+
+body {
+  // Internal color variables
+  @include generate-color-variants(--_c-neon-primary, #cdef5a);
+  @include generate-color-variants(--_c-light-primary, #f5f5f2);
+  @include generate-color-variants(--_c-dark-green-primary, #142d23);
+  @include generate-color-variants(--_c-blue-primary, #003ca0);
+  @include generate-color-variants(--_c-creme-primary, #ffefbe);
+  @include generate-color-variants(--_c-lavender-primary, #e6dcea);
+  @include generate-color-variants(--_c-light-green-primary, #d7e1c8);
+  @include generate-color-variants(--_c-peach-primary, #ffd7b9);
+  @include generate-color-variants(--_c-dark-red-primary, #552314);
+  @include generate-color-variants(--_c-red-primary, #961414);
+  @include generate-color-variants(--_c-patina-primary, #3ca57c);
+  @include generate-color-variants(--_c-clay-primary, #828255);
+  @include generate-color-variants(--_c-pink-primary, #ff96aa);
+
+  /* Brand colors */
+  @include assign-color-variants(--c-primary, --_c-neon-primary);
+  @include assign-color-variants(--c-secondary, --_c-dark-green-primary);
+
+  @include assign-color-variants(--c-neon, --_c-neon-primary);
+  @include assign-color-variants(--c-dark-green, --_c-dark-green-primary);
+  @include assign-color-variants(--c-light-green, --_c-light-green-primary);
+  @include assign-color-variants(--c-dark, --_c-dark-green-primary);
+  @include assign-color-variants(--c-light, --_c-light-primary);
+  @include assign-color-variants(--c-blue, --_c-blue-primary);
+  @include assign-color-variants(--c-creme, --_c-creme-primary);
+  @include assign-color-variants(--c-lavender, --_c-lavender-primary);
+
+  @include assign-color-variants(--c-peach, --_c-peach-primary);
+  @include assign-color-variants(--c-light-green, --_c-light-green-primary);
+  @include assign-color-variants(--c-dark-red, --_c-dark-red-primary);
+  @include assign-color-variants(--c-red, --_c-red-primary);
+
+  @include assign-color-variants(--c-patina, --_c-patina-primary);
+  @include assign-color-variants(--c-clay, --_c-clay-primary);
+  @include assign-color-variants(--c-pink, --_c-pink-primary);
+
+  --c-text: var(--c-dark-green);
+  --c-text-disabled: var(--c-dark-green-opacity-20);
+}
